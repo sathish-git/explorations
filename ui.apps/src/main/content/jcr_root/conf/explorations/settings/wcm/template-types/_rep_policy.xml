@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:primaryType="rep:ACL">
-    <allow
+    <deny
+        jcr:primaryType="rep:DenyACE"
+        rep:principalName="everyone"
+        rep:privileges="{Name}[jcr:all]"/>
+    <allow1
         jcr:primaryType="rep:GrantACE"
         rep:principalName="template-authors"
         rep:privileges="{Name}[jcr:read]"/>

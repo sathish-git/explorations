@@ -41,7 +41,7 @@ public class CreatePageFromExcelServlet extends SlingAllMethodsServlet {
 
     private static final String NOT_MULTIPART_FAILURE_MESSAGE = "The content uploaded is not a multipart content";
 
-    private static final String NO_FILE_FAILURE_MESSAGE = "No proper file is uploaded, please uploaded a .xls file to proceed";
+    private static final String NO_FILE_FAILURE_MESSAGE = "No proper file is uploaded, please upload an .xls file to proceed";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CreatePageFromExcelServlet.class);
 
@@ -49,7 +49,7 @@ public class CreatePageFromExcelServlet extends SlingAllMethodsServlet {
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
         if (FileUpload.isMultipartContent(new ServletRequestContext(request))) {
             RequestParameter param = request.getRequestParameter(UPLOADED_FILE);
-            if (param != null) {
+            if (param != null && param.getSize() >0) {
                 createPageFromExcel(request, param.getInputStream(), response);
             } else response.getWriter().append(NO_FILE_FAILURE_MESSAGE).flush();
         } else response.getWriter().append(NOT_MULTIPART_FAILURE_MESSAGE).flush();

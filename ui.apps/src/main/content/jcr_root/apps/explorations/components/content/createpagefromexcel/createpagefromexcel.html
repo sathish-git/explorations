@@ -1,20 +1,56 @@
-<div>
-    <h2>Create page from excel</h2>
-    <form action=${currentPage.path}.createPageFromExcel.json enctype="multipart/form-data" method="post">
+<div class="parent_div">
+    <h2>Create page from excel (.xls only)</h2>
+    <form class="create_page_from_excel_form" action=${currentPage.path}.createPageFromExcel.json
+          enctype="multipart/form-data" method="post">
         <fieldset>
-            <label for="fileUpload">Upload excel file (only .xls)</label>
-            <input id="fileUpload" name="uploadedFile" type="file"/>
+            <input class="file_upload" id="fileUpload" name="uploadedFile" type="file"/>
         </fieldset>
         <fieldset>
-            <button type="submit">Create pages!</button>
+            <button class="button" type="submit">CREATE PAGES</button>
         </fieldset>
     </form>
+    <p class="description">Note: Upload an .xls excel file containing the required page properties like parentPath, pageName, templatePath and
+        pageTitle. The values will be taken from 2nd row of the excel</p>
 </div>
 <style>
-    fieldSet {
-    border: none;
-    }
-    div {
-    text-align: center;
-    }
+h2 {
+font-weight: normal;
+}
+description {
+font-weight: normal;
+}
+fieldSet {
+border: none;
+}
+.parent_div {
+text-align: center;
+bor
+}
+.button {
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 10px 25px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 12px;
+border-radius: 4px;
+cursor:pointer;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+}
+.button:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button:active {
+position: relative;
+top: 1px;
+}
+.button:focus {
+outline:0;
+}
+.file_upload {
+padding-left: 5.5em;
+}
 </style>

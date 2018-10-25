@@ -1,11 +1,20 @@
-<div style="text-align:center" data-sly-use.model="com.explorations.components.CreatePageFromExcelModel">
+<div>
     <h2>Create page from excel</h2>
-    <form action=${currentPage.path}.createPageFromExcel.json method="post">
-        <div data-sly-list="${model.excelsAvailable}">
-            <label>${item.excelName}</label>
-            <input type="radio" name="selectedExcel" value="${item.excelResourcePath}">
-        </div>
-        <br>
-        <button type="submit">Create pages!</button>
+    <form action=${currentPage.path}.createPageFromExcel.json enctype="multipart/form-data" method="post">
+        <fieldset>
+            <label for="fileUpload">Upload excel file (only .xls)</label>
+            <input id="fileUpload" name="uploadedFile" type="file"/>
+        </fieldset>
+        <fieldset>
+            <button type="submit">Create pages!</button>
+        </fieldset>
     </form>
 </div>
+<style>
+    fieldSet {
+    border: none;
+    }
+    div {
+    text-align: center;
+    }
+</style>

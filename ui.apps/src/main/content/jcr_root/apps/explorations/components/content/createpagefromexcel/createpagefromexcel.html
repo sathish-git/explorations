@@ -1,3 +1,11 @@
-<div data-sly-use.model="com.explorations.components.CreatePageFromExcelModel">
-    <p>${model.excelServiceResult}</p>
+<div style="text-align:center" data-sly-use.model="com.explorations.components.CreatePageFromExcelModel">
+    <h2>Create page from excel</h2>
+    <form action=${currentPage.path}.createPageFromExcel.json method="post">
+        <div data-sly-list="${model.excelsAvailable}">
+            <label>${item.excelName}</label>
+            <input type="radio" name="selectedExcel" value="${item.excelResourcePath}">
+        </div>
+        <br>
+        <button type="submit">Create pages!</button>
+    </form>
 </div>
